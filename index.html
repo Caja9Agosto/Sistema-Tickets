@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/normalize.css">
+    <title>Sistema Tickets 9 de agosto</title>
+</head>
+
+<body>
+    <header>
+        <h2>Sistema Tickets 9 de agosto</h2>
+    </header>
+
+    <main>
+        <div class="principal">
+            <div class="container">
+
+                <div class="switch-buttons">
+                    <button id="btnRegistro">Registrarse</button>
+                    <button id="btnLogin">Iniciar Sesión</button>
+                </div>
+
+                <!-- Formulario Registro -->
+                <form id="formRegistro" class="form hidden">
+                    <input type="text" id="nombreRegistro" placeholder="Nombre completo" required>
+
+                    <input type="email" id="correoRegistro" placeholder="correo@miempresa.com" required>
+
+                    <input type="password" id="passRegistro" placeholder="Contraseña" required>
+
+                    <!--  NUEVO -->
+                    <input type="password" id="passConfirm" placeholder="Confirmar contraseña" required>
+
+
+                    <button type="submit" class="action-btn">Registrarse</button>
+                </form>
+
+                <!-- Formulario Login -->
+                <form id="formLogin" class="form hidden">
+                    <input type="email" id="correoLogin" placeholder="correo@miempresa.com" required>
+
+                    <input type="password" id="passLogin" placeholder="Contraseña" required>
+
+                    <button type="submit" class="action-btn">Iniciar Sesión</button>
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="scripts/script.js"></script>
+</body>
+
+</html>

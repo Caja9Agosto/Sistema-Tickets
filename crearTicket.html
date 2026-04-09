@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilos/crearTicket.css">
+    <link rel="stylesheet" href="estilos/normalize.css">
+    <title>Sistema Tickets 9 de agosto</title>
+</head>
+
+<body>
+    <header>
+        <div class="div-logo-dash">
+            <img src="" alt="">
+        </div>
+        <div class="div-titulo-dash">
+            <h2>Sistema Tickets 9 de agosto</h2>
+        </div>
+        <div class="div-botones-dash">
+            <a href="dashboard.html">
+                <button id="btn-regresar">Regresar</button>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="div-crearTicket">
+            <div class="div-formulario">
+                <form action="#" method="POST" class="ticket-form" id="form-ticket">
+
+                    <div class="campo">
+                        <label for="correo">Correo del solicitante</label>
+                        <input type="email" id="correo" name="correo" value="usuario@ejemplo.com" readonly
+                            class="input-readonly">
+                    </div>
+
+                    <div class="campo">
+                        <label for="tema">Tema del Incidente</label>
+                        <input type="text" id="tema" name="tema" placeholder="Ej. Problemas con internet" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="departamento">Departamento</label>
+                        <select id="departamento" name="departamento" required>
+                            <option value="" disabled selected>Selecciona un departamento</option>
+                            <option value="noaplica">NO aplica</option>
+                            <option value="personal">Personal</option>
+                            <option value="tesoreria">Tesoreria</option>
+                            <option value="pld">PLD</option>
+                            <option value="riesgos">Riesgos</option>
+                            <option value="operaciones">Operaciones</option>
+                            <option value="digitalizacion">Digitalización</option>
+                            <option value="cobranza">Cobranza</option>
+                            <option value="credito">Credito</option>
+                            <option value="une">UNE</option>
+                            <option value="auditoria">Auditoria</option>
+                            <option value="captacion">Captación</option>
+
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="tiposolicitud">Tipo de solicitud</label>
+                        <select id="tipo_solicitud" name="tipoSolicitud" required>
+                            <option value="" disabled selected>Seleccione</option>
+                            <option value="soporte">Soporte (Dudas generales)</option>
+                            <option value="saicoop1">Saicoop 1</option>
+                            <option value="saicoop2">Saicoop 2</option>
+                            <option value="saicoop2">Otros</option>
+
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="sucursal">Sucursal</label>
+                        <select id="sucursal" name="sucursal" required>
+                            <option value="" disabled selected>Selecciona una sucursal</option>
+                            <option value="noaplica">NO aplica</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label>Descripción detallada</label>
+                        <div id="editor-container"></div>
+                        <input type="hidden" name="descripcion" id="descripcion">
+                    </div>
+                    <div class="campo">
+                        <label for="prioridad">Prioridad</label>
+                        <select id="Prioridad" name="prioridad" required>
+                            <option value="" disabled selected>Selecciona una prioridad</option>
+                            <option value="bajo">Bajo</option>
+                            <option value="medio">Medio</option>
+                            <option value="alto">Alto</option>
+                            <option value="urgente">Urgente</option>
+
+
+                        </select>
+                    </div>
+
+                    <div class="div-enviar">
+                        <button type="submit" id="btn-crear">Crear Ticket</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="scripts/crearTicket.js"></script>
+
+</body>
+
+</html>

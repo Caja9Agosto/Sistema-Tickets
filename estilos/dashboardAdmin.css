@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    width: 100%;
+    height: auto;
+    background-color: #27ae60;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+
+
+.div-logo-dash,
+.div-titulo-dash,
+.div-saludo-dash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    
+}
+
+.div-logo-dash img{
+    width: 50px;
+}
+/*
+#btn-salir{
+ width: 80px;
+ padding: 4px;
+ background: linear-gradient(135deg, #1b62ef, #2398ff);
+ border-radius: 10px;
+ cursor: pointer;
+ color: white;
+ border: none;
+}
+ */
+
+
+ #btn-salir{
+     text-align: center;
+    align-items: center;
+    text-decoration: none;
+     background-color: #27ae60;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 0 15px;
+    height: 45px;
+    min-width: 140px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    color: white;
+   
+}
+
+body {
+    font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1b62ef, #2398ff);
+    margin: 0;
+}
+
+.div-principal {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 15px;
+    height: auto;
+}
+
+
+.btn-ticket {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+     background-color: #27ae60;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 0 15px;
+    height: 45px;
+    min-width: 140px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.btn-ticket p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.azul {
+   background-color: #003b19;
+}
+
+.gris {
+   background-color: #003b19;
+}
+
+.btn-ticket:hover,
+#btn-salir:hover {
+     background-color: #008b3a;
+    border-color: #ccc;
+    transform: translateY(-2px);
+    
+}
