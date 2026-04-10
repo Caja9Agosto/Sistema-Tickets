@@ -20,7 +20,6 @@ async function cargarTicket() {
         const res = await fetch(`http://localhost:3000/ticket/${id}`);
         const ticket = await res.json();
 
-        // 🔥 TODO EN EL MISMO FLUJO
         contenedor.innerHTML = `
             <div class="ticket-detalle">
                 <h2>${ticket.tema}</h2>
@@ -44,7 +43,7 @@ async function cargarTicket() {
         `;
 
         iniciarEditor();
-        cargarComentarios(); // 🔥 IMPORTANTE
+        cargarComentarios();
 
     } catch (error) {
         console.error(error);
@@ -61,26 +60,26 @@ async function cargarComentarios() {
         const comentarios = await res.json();
 
         const chat = document.getElementById('chat-contenedor');
-
-        if (!chat) return; // 🔥 evita errores
+        if (!chat) return;
 
         chat.innerHTML = '';
 
         comentarios.forEach(c => {
             const div = document.createElement('div');
-
-            // estilo simple tipo conversación
-            div.style.border = '1px solid black';
-            div.style.padding = '10px';
-            div.style.marginBottom = '10px';
+            div.classList.add('mensaje');
 
             div.innerHTML = `
-                <p><strong>${c.nombre}</strong></p>
-                <div>${c.comentario}</div>
+                <p class="nombre">${c.nombre}</p>
+                <div class="mensaje-texto">
+                    ${c.comentario}
+                </div>
             `;
 
             chat.appendChild(div);
         });
+
+        // scroll automático
+        chat.scrollTop = chat.scrollHeight;
 
     } catch (error) {
         console.error(error);
@@ -121,7 +120,7 @@ async function enviarComentario() {
         // limpiar editor
         quill.root.innerHTML = '';
 
-        // recargar SOLO conversación
+        // recargar conversación
         cargarComentarios();
 
     } catch (error) {
