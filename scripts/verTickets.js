@@ -27,7 +27,10 @@ async function cargarTickets() {
             const div = document.createElement('div');
             div.classList.add('ticket-card');
 
-            div.innerHTML = `<p class="ticket-tema">${ticket.tema}</p>`;
+            div.innerHTML = `
+                <p class="ticket-tema">${ticket.tema}</p>
+                <p><strong>Estado:</strong> ${ticket.estado}</p>
+            `;
 
             // CLICK PARA IR AL CHAT
             div.addEventListener('click', () => {

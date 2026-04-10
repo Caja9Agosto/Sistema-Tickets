@@ -17,9 +17,23 @@ const contenedor = document.querySelector('.div-verConv-left');
 let quill;
 
 // ==========================
+// MARCAR COMO ABIERTO 🔥
+// ==========================
+async function marcarComoAbierto() {
+    try {
+        await fetch(`http://localhost:3000/tickets/${id}/abrir`, {
+            method: 'PUT'
+        });
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+// ==========================
 // CARGAR TODO
 // ==========================
 async function cargarTodo() {
+    await marcarComoAbierto(); // 👈 NUEVO
     await cargarTicket();
     await cargarComentarios();
 }
@@ -75,7 +89,6 @@ async function cargarComentarios() {
             const div = document.createElement('div');
             div.classList.add('mensaje');
 
-            // 👇 AQUÍ EL CAMBIO VISUAL
             div.innerHTML = `
                 <p class="nombre">${c.nombre}</p>
                 <div class="mensaje-texto">
@@ -86,7 +99,6 @@ async function cargarComentarios() {
             chat.appendChild(div);
         });
 
-        // 👇 auto scroll hacia abajo
         chat.scrollTop = chat.scrollHeight;
 
     } catch (error) {
