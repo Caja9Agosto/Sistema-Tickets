@@ -11,12 +11,15 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
 
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #1b62ef, #2398ff);
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a4a7a 0%, #2d8a5a 100%);
+  background-attachment: fixed;
+  font-family: sans-serif;
   margin: 0;
 }
 
