@@ -60,4 +60,26 @@ body {
 .div-verTick-right {
   width: 20%;
   border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.div-verTick-right-sup{
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    background: blue;
+}
+
+#btn-eliminar-tickets{
+      width: 80px;
+    padding: 4px;
+    background: linear-gradient(135deg, #ef1b1b, #ff6274);
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    border: none;
+    
 }

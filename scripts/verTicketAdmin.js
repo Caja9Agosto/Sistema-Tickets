@@ -40,17 +40,40 @@ async function cargarTicketsAdmin() {
             div.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
             div.style.cursor = 'pointer';
 
-            // CONTENIDO
+            // CONTENIDO + BOTÓN ELIMINAR
             div.innerHTML = `
                 <p><strong>${ticket.nombre}</strong></p>
                 <p>${ticket.tema}</p>
                 <p>Depto: ${ticket.departamento}</p>
                 <p><strong>Prioridad:</strong> ${ticket.prioridad}</p>
+
+                <button class="btn-eliminar">Eliminar</button>
             `;
 
-            // 👉 CLICK PARA ABRIR (ADMIN)
+            // 👉 CLICK PARA ABRIR CHAT
             div.addEventListener('click', () => {
                 window.location.href = `chatAdmin.html?id=${ticket.id}`;
+            });
+
+            // 👉 BOTÓN ELIMINAR
+            const btnEliminar = div.querySelector('.btn-eliminar');
+
+            btnEliminar.addEventListener('click', async (e) => {
+                e.stopPropagation(); // 🔥 evita que abra el chat
+
+                const confirmar = confirm('¿Eliminar ticket?');
+                if (!confirmar) return;
+
+                try {
+                    await fetch(`http://localhost:3000/tickets/${ticket.id}`, {
+                        method: 'DELETE'
+                    });
+
+                    div.remove(); // elimina visualmente
+
+                } catch (error) {
+                    console.error(error);
+                }
             });
 
             contenedor.appendChild(div);
