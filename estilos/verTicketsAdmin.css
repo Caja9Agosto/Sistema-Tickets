@@ -55,8 +55,10 @@ body {
 .div-verTick-left {
   width: 70%;
   border: 2px solid black;
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
-
+/*
 .div-verTick-right {
   width: 20%;
   border: 2px solid black;
@@ -64,7 +66,17 @@ body {
   flex-direction: column;
   
 }
+ */
+/*
 
+.div-verTick-right-sup{
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    background: blue;
+}
+    */
 
 #btn-eliminar-tickets{
       width: 80px;
