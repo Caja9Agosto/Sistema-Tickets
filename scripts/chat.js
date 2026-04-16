@@ -35,11 +35,11 @@ async function cargarTicket() {
             <div id="chat-contenedor" style="margin-top:20px;"></div>
 
             <!-- RESPUESTA -->
-            <div style="margin-top:20px;">
+           
                 <h3>Responder</h3>
                 <div id="editor-container"></div>
                 <button id="btn-enviar">Enviar</button>
-            </div>
+          
         `;
 
         iniciarEditor();

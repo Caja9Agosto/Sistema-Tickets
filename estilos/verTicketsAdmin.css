@@ -65,13 +65,6 @@ body {
   
 }
 
-.div-verTick-right-sup{
-    width: auto;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    background: blue;
-}
 
 #btn-eliminar-tickets{
       width: 80px;

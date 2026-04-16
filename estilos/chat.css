@@ -72,6 +72,15 @@ body {
     background: white;
 }
 
+/* DETALLE DEL TICKET */
+.ticket-detalle {
+    max-height: 150px;
+    overflow-y: auto;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+
 
 
 #chat-contenedor {
@@ -97,4 +106,22 @@ body {
     background: white;
     padding: 8px;
     border-radius: 5px;
+}
+
+
+
+/* HACER QUILL MÁS PEQUEÑO */
+.ql-container {
+    height: 80px !important; /* 🔥 ajusta tamaño */
+}
+
+.ql-editor {
+    min-height: 60px;
+    max-height: 80px;
+    overflow-y: auto;
+}
+
+/* OPCIONAL: toolbar más compacta */
+.ql-toolbar {
+    padding: 5px;
 }
