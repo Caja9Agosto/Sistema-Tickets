@@ -5,8 +5,9 @@ if (!usuario) {
     window.location.href = 'index.html';
 }
 
-// CONTENEDOR IZQUIERDO
+// CONTENEDORES
 const contenedor = document.querySelector('.div-verTick-left');
+const info = document.querySelector('.div-verTick-right');
 
 // TRAER TICKETS
 async function cargarTickets() {
@@ -17,6 +18,15 @@ async function cargarTickets() {
         console.log("Tickets:", tickets);
 
         contenedor.innerHTML = '';
+
+        // 🔥 INFO DEL USUARIO (LADO DERECHO)
+        info.innerHTML = `
+            <div style="padding:15px;">
+                <h3>Hola ${usuario.nombre}</h3>
+                <p>Tienes <strong>${tickets.length}</strong> ticket(s)</p>
+                <p>¡Excelente día!</p>
+            </div>
+        `;
 
         if (tickets.length === 0) {
             contenedor.innerHTML = '<p>No tienes tickets aún</p>';
