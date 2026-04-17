@@ -54,12 +54,11 @@ body {
 
 .div-verTick-left {
   width: 70%;
-  
   overflow-y: auto;
   scrollbar-width: thin;
 }
 
-/*
+
 .div-verTick-right {
   width: 20%;
   border: 2px solid black;
@@ -67,7 +66,7 @@ body {
   flex-direction: column;
   
 }
- */
+ 
 /*
 
 .div-verTick-right-sup{

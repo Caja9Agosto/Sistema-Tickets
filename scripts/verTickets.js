@@ -19,7 +19,7 @@ async function cargarTickets() {
 
         contenedor.innerHTML = '';
 
-        // 🔥 INFO DEL USUARIO (LADO DERECHO)
+        //  INFO DEL USUARIO (LADO DERECHO)
         info.innerHTML = `
             <div style="padding:15px;">
                 <h3>Hola ${usuario.nombre}</h3>

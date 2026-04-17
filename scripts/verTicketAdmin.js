@@ -1,4 +1,8 @@
 const contenedor = document.querySelector('.div-verTick-left');
+const info = document.querySelector('#info-usuario');
+
+// 🔥 OBTENER USUARIO (para nombre)
+const usuario = JSON.parse(localStorage.getItem('usuario'));
 
 async function cargarTicketsAdmin() {
     try {
@@ -7,31 +11,29 @@ async function cargarTicketsAdmin() {
 
         contenedor.innerHTML = '';
 
+        // 🔥 INFO LADO DERECHO (ADMIN)
+        info.innerHTML = `
+            <div style="padding:15px;">
+                <h3>Hola ${usuario.nombre}</h3>
+                <p>Tienes <strong>${tickets.length}</strong> ticket's por resolver!!</p>
+                <p>Excelente día Admin!</p>
+            </div>
+        `;
+
         tickets.forEach(ticket => {
             const div = document.createElement('div');
             div.classList.add('ticket-card');
 
-            // 🎨 COLOR POR PRIORIDAD
             let color = '';
 
             switch (ticket.prioridad) {
-                case 'urgente':
-                    color = 'red';
-                    break;
-                case 'alto':
-                    color = 'orange';
-                    break;
-                case 'medio':
-                    color = 'gold';
-                    break;
-                case 'bajo':
-                    color = 'green';
-                    break;
-                default:
-                    color = 'gray';
+                case 'urgente': color = 'red'; break;
+                case 'alto': color = 'orange'; break;
+                case 'medio': color = 'gold'; break;
+                case 'bajo': color = 'green'; break;
+                default: color = 'gray';
             }
 
-            // 🎨 ESTILOS
             div.style.borderLeft = `10px solid ${color}`;
             div.style.padding = '12px';
             div.style.marginBottom = '12px';
@@ -40,7 +42,6 @@ async function cargarTicketsAdmin() {
             div.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
             div.style.cursor = 'pointer';
 
-            // CONTENIDO + BOTÓN ELIMINAR
             div.innerHTML = `
                 <p><strong>${ticket.nombre}</strong></p>
                 <p>${ticket.tema}</p>
@@ -50,16 +51,16 @@ async function cargarTicketsAdmin() {
                 <button class="btn-eliminar">Eliminar</button>
             `;
 
-            // 👉 CLICK PARA ABRIR CHAT
+            // 👉 ABRIR CHAT
             div.addEventListener('click', () => {
                 window.location.href = `chatAdmin.html?id=${ticket.id}`;
             });
 
-            // 👉 BOTÓN ELIMINAR
+            // 👉 ELIMINAR
             const btnEliminar = div.querySelector('.btn-eliminar');
 
             btnEliminar.addEventListener('click', async (e) => {
-                e.stopPropagation(); // 🔥 evita que abra el chat
+                e.stopPropagation();
 
                 const confirmar = confirm('¿Eliminar ticket?');
                 if (!confirmar) return;
@@ -69,7 +70,7 @@ async function cargarTicketsAdmin() {
                         method: 'DELETE'
                     });
 
-                    div.remove(); // elimina visualmente
+                    div.remove();
 
                 } catch (error) {
                     console.error(error);
