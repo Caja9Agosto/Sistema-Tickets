@@ -17,7 +17,7 @@ const contenedor = document.querySelector('.div-verConv-left');
 let quill;
 
 // ==========================
-// MARCAR COMO ABIERTO 🔥
+// MARCAR COMO ABIERTO 
 // ==========================
 async function marcarComoAbierto() {
     try {
@@ -33,7 +33,7 @@ async function marcarComoAbierto() {
 // CARGAR TODO
 // ==========================
 async function cargarTodo() {
-    await marcarComoAbierto(); // 👈 NUEVO
+    await marcarComoAbierto(); 
     await cargarTicket();
     await cargarComentarios();
 }
@@ -75,7 +75,7 @@ async function cargarTicket() {
 }
 
 // ==========================
-// TRAER COMENTARIOS (ESTILO)
+// TRAER COMENTARIOS (ESTILO) xd
 // ==========================
 async function cargarComentarios() {
     try {
