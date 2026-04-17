@@ -45,8 +45,8 @@ body {
 
 .div-formulario {
     width: 100%;
-    max-width: 700px; /* 🔥 clave */
-    background-color: #ffffff;
+    max-width: 700px; 
+  
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
@@ -70,7 +70,7 @@ body {
 .campo label {
     font-size: 0.85rem;
     font-weight: 600;
-    color: #555;
+    color: #000000;
 }
 
 

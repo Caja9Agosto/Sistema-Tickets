@@ -1,5 +1,6 @@
-// script.js
-
+// ==========================
+// ELEMENTOS
+// ==========================
 const btnRegistro = document.getElementById('btnRegistro');
 const btnLogin = document.getElementById('btnLogin');
 const formRegistro = document.getElementById('formRegistro');
@@ -28,19 +29,16 @@ btnLogin.addEventListener('click', () => {
     formRegistro.classList.add('hidden');
 });
 
-
 // ==========================
-// REGISTRO REAL
+// REGISTRO
 // ==========================
-formRegistro.addEventListener('submit', async function(e) {
+formRegistro.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const nombre = document.getElementById('nombreRegistro').value;
-    const correo = document.getElementById('correoRegistro').value;
+    const nombre = document.getElementById('nombreRegistro').value.trim();
+    const correo = document.getElementById('correoRegistro').value.trim();
     const pass = document.getElementById('passRegistro').value;
     const confirm = document.getElementById('passConfirm').value;
-
-    console.log("Nombre capturado:", nombre);
 
     if (!correo.endsWith('@9deagosto.com')) {
         alert('Solo correos autorizados');
@@ -60,12 +58,10 @@ formRegistro.addEventListener('submit', async function(e) {
     try {
         const res = await fetch('http://localhost:3000/registro', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                nombre: nombre,
-                correo: correo,
+                nombre,
+                correo,
                 password: pass
             })
         });
@@ -75,7 +71,6 @@ formRegistro.addEventListener('submit', async function(e) {
 
         if (data.success) {
             alert('Registro exitoso');
-
             formRegistro.reset();
             btnLogin.click();
         } else {
@@ -83,54 +78,53 @@ formRegistro.addEventListener('submit', async function(e) {
         }
 
     } catch (error) {
-        console.error(error);
+        console.error("ERROR REGISTRO:", error);
         alert('Error al conectar con el servidor');
     }
 });
 
-
 // ==========================
-// LOGIN REAL
+// LOGIN
 // ==========================
-formLogin.addEventListener('submit', async function(e) {
+formLogin.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const correo = document.getElementById('correoLogin').value;
-    const pass = document.getElementById('passLogin').value;
+    const correo = document.getElementById('correoLogin').value.trim();
+    const password = document.getElementById('passLogin').value;
 
     try {
         const res = await fetch('http://localhost:3000/login', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                correo: correo,
-                password: pass
+                correo,
+                password
             })
         });
 
         const data = await res.json();
         console.log("Respuesta login:", data);
 
-        if (data.success) {
-            alert('Login correcto');
+        if (!data.success) {
+            alert(data.message || 'Credenciales incorrectas');
+            return;
+        }
 
-            localStorage.setItem('usuario', JSON.stringify(data.user));
+        alert('Login correcto');
 
-            // Redirección según rol
-            if (data.user.rol === 'software' || data.user.rol === 'hardware') {
-                window.location.href = 'dashboardAdmin.html';
-            } else {
-                window.location.href = 'dashboard.html';
-            }
+        localStorage.setItem('usuario', JSON.stringify(data.user));
 
+        // Redirección por rol
+        const rol = data.user.rol;
+
+        if (rol === 'software' || rol === 'hardware') {
+            window.location.href = 'dashboardAdmin.html';
         } else {
-            alert('Credenciales incorrectas');
+            window.location.href = 'dashboard.html';
         }
 
     } catch (error) {
-        console.error(error);
+        console.error("ERROR LOGIN:", error);
         alert('Error al conectar con el servidor');
     }
 });
