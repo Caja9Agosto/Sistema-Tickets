@@ -10,11 +10,11 @@ app.use(express.json());
 
 //  CONEXIÓN BD
 const pool = new Pool({
-  user: 'admin2',
-  host: '192.168.0.209',
-  database: 'sistema_tickets',
-  password: 'p0s31d0n9',
-  port: 5432,
+  user: '',
+  host: '',
+  database: '',
+  password: '',
+  port: ,
 });
 
 // ==========================
@@ -59,11 +59,11 @@ app.post('/login', async (req, res) => {
 
     let valid = false;
 
-    // 🔥 Si ya está en bcrypt
+    //  Si ya está en bcrypt
     if (user.password.startsWith('$2')) {
       valid = await bcrypt.compare(password, user.password);
     } 
-    // 🔥 usuarios viejos (texto plano)
+    // usuarios viejos (texto plano)
     else {
       valid = password === user.password;
     }
